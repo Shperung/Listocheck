@@ -1,14 +1,22 @@
 const css = require('./app.less');
 
-import bab from './bab.js';
-
-bab();
 
 import React from "react";
-import ReactDOM from "react-dom";
+import {render} from "react-dom";
+
+import Article  from "./article/article.js";
+
+function App() {
+	return (
+		<section>
+			<h1>Listocheck</h1>
+			<Article />
+		</section>
+	)
+}
 
 
-ReactDOM.render(
-  <h1>Hello, world!</h1>,
+render(
+  <App />,
   document.getElementById('root')
 );
