@@ -1,8 +1,8 @@
 const css = require('./app.css');
 import React from "react";
 import {render} from "react-dom";
-import Article  from "./article/article.js";
-import Modals  from "./modals/modals.js";
+import Article  from "./article/article.jsx";
+import Modals  from "./modals/modals.jsx";
 
 class App extends React.Component {
     render() {

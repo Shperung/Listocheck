@@ -2,7 +2,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 var path = require("path");
 
 module.exports = {
-	entry: './src/app.js',//точка входа
+	entry: './src/app.jsx',//точка входа
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'app.bundle.js' // скомпилированый js
@@ -28,11 +28,11 @@ module.exports = {
 				})
 			},
 			{
-				test: /\.js$/,
+			  test: /\.(js|jsx)$/,
 				exclude: '/node_modules/',
 				use: 'babel-loader'
 			}
-		]	
+		]
 	},
   plugins: [
       new ExtractTextPlugin({
@@ -40,5 +40,5 @@ module.exports = {
       	allChunks: true
       })
 	  ]
-	
+
 }//end module.exports
