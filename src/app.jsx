@@ -1,15 +1,20 @@
 const css = require('./app.css');
 import React from "react";
 import {render} from "react-dom";
-import Article  from "./article/article.jsx";
+// import Article  from "./article/article.jsx";
+import ArticleClass  from "./article/article-class.jsx";
 import Modals  from "./modals/modals.jsx";
 
 class App extends React.Component {
-    render() {
+  render() {
   	return (
   		<React.Fragment>
         <h1>App</h1>
-  			<Article />
+  			<ArticleClass
+          id={1}
+          title="article Class"
+          text="Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+        />
         <Modals />
   		</React.Fragment>
   	)

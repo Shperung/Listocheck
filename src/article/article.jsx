@@ -1,14 +1,16 @@
+// Functional Components
 import React from "react";
 
-export default function Article() {
+export default function Article(props) {
+	const {
+		id,
+		title,
+		text
+	} = props;
 	return (
-		<article>
-			<h3>article</h3>
-			<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-				 Quasi laborum voluptas consectetur unde accusamus voluptate
-				  tenetur iste cupiditate quod cum minima tempora repellat
-				   aliquam, voluptatum hic, accusantium atque! Quaerat, eos.
-		  </p>
+		<article key={id}>
+			<h3>{title}</h3>
+			<p>{text}</p>
 		</article>
 	)
 }
