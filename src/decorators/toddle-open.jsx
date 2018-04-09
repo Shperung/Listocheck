@@ -24,4 +24,4 @@ export default (OriginalComponent) => class WrapperComponent extends Component {
 	}
 
 
-}
+} /*class*/
