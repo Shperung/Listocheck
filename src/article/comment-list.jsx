@@ -1,16 +1,16 @@
-// Functional Components
+//Stateless Functional Components
 import React from "react";
 import Commemt from "./comment.jsx";
 
 export default function CommentList(props) {
-	const {
-		comments
+const {
+		comments = []
 	} = props;
 
 	return (
  	 <React.Fragment>
 	    {
-	      comments.length > 0 ? 
+	     comments.length > 0 ? 
 	        comments.map((comment) => 
 	          <Commemt 
 	            key={comment.id}
@@ -18,7 +18,9 @@ export default function CommentList(props) {
 	            text={comment.text}
 	          />
 	        )
-	      : null
+	      : (
+	      	<mark>Not comments</mark>
+	      )
 	    }
 	  </React.Fragment>
 	)

@@ -1,3 +1,4 @@
+//Stateless Functional Components
 import React from "react";
 import ArticleClass  from "./article-class.jsx";
 export default function ArticleList({articles}) {

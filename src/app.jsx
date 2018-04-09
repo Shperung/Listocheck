@@ -7,6 +7,7 @@ import ArticleList  from "./article/article-list.jsx";
 import Modals  from "./modals/modals.jsx";
 import {articles} from "./data.js";
 
+
 class App extends React.Component {
   render() {
   	return (

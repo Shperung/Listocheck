@@ -1,39 +1,23 @@
 // Class
 import React, {Component} from 'react';
+import toggleOpen from "../decorators/toddle-open.jsx";
 
-export default class Comment extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      isOpen: false
-    }
-  }
-
- commentOpen = (ev) => {
-  this.setState({
-      isOpen: !this.state.isOpen
-    }
-  )
- }
-
+ class Comment extends Component {
   render() {
     const {
       id,
       user,
-      text
+      text,
+      isOpen,
+      toggleOpen
     } = this.props;
-
-    const {
-      isOpen
-    } = this.state;
 
     const body = isOpen ? <p><em>{text}</em></p> : null;
 
     return (
       <blockquote key={id}>
         <h4>Комент от - <b>{user}</b></h4>
-        <button onClick= {this.commentOpen} type="button">
+        <button onClick= {toggleOpen} type="button">
           {isOpen ? 'Закрыть коммент' : 'Показать коммент'}
         </button>
         {body}
@@ -42,4 +26,7 @@ export default class Comment extends Component {
   }
 
 
+
 }/*class*/
+
+export default toggleOpen(Comment);

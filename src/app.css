@@ -25,3 +25,7 @@ blockquote {
 	padding: 8px;
 	margin: 8px;
 }
+
+mark {
+	padding: 4px;
+}

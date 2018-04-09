@@ -3,23 +3,10 @@ import React, {Component} from 'react';
 import Commemt from "./comment.jsx";
 import CommemtList from "./comment-list.jsx";
 
-export default class ArticleClass extends Component {
-  constructor(props) {
-    super(props);
 
-    this.state = {
-      isOpen: false
-    }
-  }
+import toggleOpen from "../decorators/toddle-open.jsx";
 
- toggleOpen = (ev) => {
-  // console.log('ev', ev);//Реактовський ивент
-  // console.log('ev.nativeEvent', ev.nativeEvent);//Настоящий ивент
-  this.setState({
-      isOpen: !this.state.isOpen
-    }
-  )
- }
+class ArticleClass extends Component {
 
   render() {
     //console.log(this.state); // стейт всегда логировать в render (в других методах неправильно)
@@ -27,12 +14,12 @@ export default class ArticleClass extends Component {
       id,
       title,
       text,
-      comments
+      comments,
+      isOpen,
+      toggleOpen
     } = this.props;
 
-    const {
-      isOpen
-    } = this.state;
+   
 
     const body = isOpen ? 
       <React.Fragment>
@@ -44,7 +31,7 @@ export default class ArticleClass extends Component {
     return (
       <article key={id}>
         <h3>{title}</h3>
-        <button onClick= {this.toggleOpen} type="button">
+        <button onClick= {toggleOpen} type="button">
           {isOpen ? 'close' : 'open'}
         </button>
         {body}
@@ -54,3 +41,5 @@ export default class ArticleClass extends Component {
 
 
 }/*class*/
+
+export default toggleOpen(ArticleClass);
