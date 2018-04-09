@@ -1,6 +1,7 @@
 // Class
 import React, {Component} from 'react';
 import Commemt from "./comment.jsx";
+import CommemtList from "./comment-list.jsx";
 
 export default class ArticleClass extends Component {
   constructor(props) {
@@ -36,18 +37,7 @@ export default class ArticleClass extends Component {
     const body = isOpen ? 
       <React.Fragment>
         <p>{text}</p> 
-        {
-          comments.length > 0 ? 
-            comments.map((comment) => 
-              <Commemt 
-                key={comment.id}
-                user={comment.user}
-                text={comment.text}
-              />
-            )
-          : null
-        }
-
+        <CommemtList comments={comments} />
       </React.Fragment>
     : null;
 
