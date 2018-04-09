@@ -12,6 +12,11 @@ class ArticleClass extends Component {
     console.log('componentWillReciveProps (isOpen) - ', this.props.title, this.props.isOpen, nextProps.isOpen);
   }
 
+  setContainerRef = ref => {
+    this.container = ref;
+    console.log('ref ', ref);
+  }
+
   render() {
     //console.log(this.state); // стейт всегда логировать в render (в других методах неправильно)
     const {
@@ -21,9 +26,7 @@ class ArticleClass extends Component {
       comments,
       isOpen,
       toggleOpen
-    } = this.props;
-
-   
+    } = this.props;   
 
     const body = isOpen ? 
       <React.Fragment>
@@ -33,7 +36,10 @@ class ArticleClass extends Component {
     : null;
 
     return (
-      <article key={id}>
+      <article
+        key={id}
+        ref={this.setContainerRef}
+      >
         <h3>{title}</h3>
         <button onClick= {toggleOpen} type="button">
           {isOpen ? 'close' : 'open'}
