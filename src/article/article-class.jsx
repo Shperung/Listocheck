@@ -52,4 +52,4 @@ class ArticleClass extends Component {
 
 }/*class*/
 
-export default toggleOpen(ArticleClass);
+export default ArticleClass;
