@@ -21,6 +21,7 @@ export default function ArticleList({articles}) {
 						id={article.id}
 						title={article.title}
 						text={article.text}
+						comments={article.comments}
 					/>
 				)
 			}

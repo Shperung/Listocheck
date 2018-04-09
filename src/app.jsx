@@ -12,14 +12,20 @@ class App extends React.Component {
   	return (
   		<React.Fragment>
         <h1>App</h1>
-  			<ArticleClass
+  			
+        <h2>Тест одной статичной стьи</h2>
+        <ArticleClass
           id={1}
           title="article Class"
           text="Lorem ipsum dolor sit amet, consectetur adipisicing elit."
         />
+
+        <h2>Тест модалок</h2>
         <Modals />
-        <br />
+
+        <h2>Тест списка статей</h2>
         <ArticleList articles={articles} />
+
   		</React.Fragment>
   	)
   }

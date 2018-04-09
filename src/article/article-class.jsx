@@ -1,5 +1,6 @@
 // Class
 import React, {Component} from 'react';
+import Commemt from "./comment.jsx";
 
 export default class ArticleClass extends Component {
   constructor(props) {
@@ -10,7 +11,9 @@ export default class ArticleClass extends Component {
     }
   }
 
- toggleOpen = () => {
+ toggleOpen = (ev) => {
+  // console.log('ev', ev);//Реактовський ивент
+  // console.log('ev.nativeEvent', ev.nativeEvent);//Настоящий ивент
   this.setState({
       isOpen: !this.state.isOpen
     }
@@ -18,18 +21,35 @@ export default class ArticleClass extends Component {
  }
 
   render() {
-    console.log(this.state);
+    //console.log(this.state); // стейт всегда логировать в render (в других методах неправильно)
     const {
       id,
       title,
-      text
+      text,
+      comments
     } = this.props;
 
     const {
       isOpen
     } = this.state;
 
-    const body = isOpen ? <p>{text}</p> : null;
+    const body = isOpen ? 
+      <React.Fragment>
+        <p>{text}</p> 
+        {
+          comments.length > 0 ? 
+            comments.map((comment) => 
+              <Commemt 
+                key={comment.id}
+                user={comment.user}
+                text={comment.text}
+              />
+            )
+          : null
+        }
+
+      </React.Fragment>
+    : null;
 
     return (
       <article key={id}>
