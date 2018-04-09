@@ -8,6 +8,10 @@ import toggleOpen from "../decorators/toddle-open.jsx";
 
 class ArticleClass extends Component {
 
+  componentWillReceiveProps(nextProps) {
+    console.log('componentWillReciveProps (isOpen) - ', this.props.title, this.props.isOpen, nextProps.isOpen);
+  }
+
   render() {
     //console.log(this.state); // стейт всегда логировать в render (в других методах неправильно)
     const {
@@ -23,7 +27,7 @@ class ArticleClass extends Component {
 
     const body = isOpen ? 
       <React.Fragment>
-        <p>{text}</p> 
+        <p>Текст - {text}</p> 
         <CommemtList comments={comments} />
       </React.Fragment>
     : null;

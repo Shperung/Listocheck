@@ -9,6 +9,11 @@ import {articles} from "./data.js";
 
 
 class App extends React.Component {
+
+  componentWillMount(){
+    //debugger
+    console.log('componentWillMount');
+  }
   render() {
   	return (
   		<React.Fragment>
@@ -30,7 +35,11 @@ class App extends React.Component {
   		</React.Fragment>
   	)
   }
-}
+  componentDidMount(){
+    //debugger
+    console.log('componentDidMount');
+  }
+} /* App */
 
 render(
   <App />,
