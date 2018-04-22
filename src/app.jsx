@@ -10,10 +10,27 @@ import {articles} from "./data.js";
 
 class App extends React.Component {
 
+  state = {
+    updateIndex: 0,
+  }
+
   componentWillMount(){
     //debugger
-    console.log('componentWillMount');
+    //console.log('componentWillMount');
   }
+
+  componentDidMount(){
+    //console.log('componentDidMount');
+  }
+
+  componentDidUpdate(){
+    //console.log('componentDidUpdate');
+  }
+
+  componentWillUnount(){
+    //console.log('componentWillUnount');
+  }
+
   render() {
   	return (
   		<React.Fragment>
@@ -30,15 +47,37 @@ class App extends React.Component {
         <Modals />
 
         <h2>Тест списка статей</h2>
-        <ArticleList articles={articles} />
+        <ArticleList  ref={this.testArticleList} articles={articles} />
+
+        <button 
+          //onClick = {() => this.setState(updateIndex: this.state.updateIndex + 1)}
+          // onClick = {() => //console.log('click ', this.state.updateIndex + 1)}
+          onClick = {() => this.setState({updateIndex: this.state.updateIndex + 1})}
+        >
+          Тест полного перегенирирования
+        </button>
+        <br/><br/>
+        <b ref={this.testRef} className="click-here" key={this.state.updateIndex}>
+          Полное перегинерирование this.state.updateIndex - {this.state.updateIndex}
+        </b>
 
   		</React.Fragment>
   	)
   }
-  componentDidMount(){
-    //debugger
-    console.log('componentDidMount');
+
+
+
+
+
+  testRef = ref => {
+    // //console.log('testRef ref ', ref);
   }
+
+  testArticleList = ref => {
+    // //console.log('testArticleList ref ', ref);
+    ref.testParam = 1;  // Насильно передаем параметор или чтото делаю но так лучше не делать
+  }
+
 } /* App */
 
 render(
