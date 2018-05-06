@@ -5,6 +5,7 @@ import {render} from "react-dom";
 import ArticleClass  from "./article/article-class.jsx";
 import ArticleList  from "./article/article-list.jsx";
 import Modals  from "./modals/modals.jsx";
+import Input from "./form/input.jsx";
 import {articles} from "./data.js";
 
 
@@ -60,6 +61,9 @@ class App extends React.Component {
         <b ref={this.testRef} className="click-here" key={this.state.updateIndex}>
           Полное перегинерирование this.state.updateIndex - {this.state.updateIndex}
         </b>
+
+        <br/><br/>
+        <Input />
 
   		</React.Fragment>
   	)
