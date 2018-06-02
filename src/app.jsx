@@ -9,7 +9,7 @@ import ArticleList  from "./article/article-list.jsx";
 import Modals  from "./modals/modals.jsx";
 import Input from "./form/input.jsx";
 import {articles} from "./data.js";
-
+import Datepicker from "./form/datepicker.jsx";
 
 
 class App extends React.Component {
@@ -82,7 +82,10 @@ class App extends React.Component {
           value={this.state.selection}
           onChange={this.changeSelection}
           className="custom-select"
+          multi
         />
+
+        <Datepicker />
 
   		</React.Fragment>
   	)
