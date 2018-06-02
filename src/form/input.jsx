@@ -4,15 +4,17 @@ import React, {Component} from 'react';
 class Input extends Component {
 
 	state={
-		username: 'test',
+		username: '',
 	};
 
 	handleUserChange = (ev) => {
+
+		console.log('ev.target', ev.target);
 		{/* Меняю цвет */}
-		if (ev.target.value.length > 10 ) {
-			ev.target.style = 'color: green'
+		if (ev.target.value.length < 5 || ev.target.value.length > 15 ) {
+			ev.target.style = 'outline-color: red'
 		} else {
-			ev.target.style = 'color: inherit'
+			ev.target.style = 'outline-color: transparents'
 		}
 		this.setState({
 				username: ev.target.value,
@@ -21,11 +23,15 @@ class Input extends Component {
 	};
 
 	render() {
+		const {
+			label = "Enter => "
+		} = this.props;
 		return (
 			<label htmlFor="username">
-			User: &nbsp;
+			{label} &nbsp;
 				<input
 					id="username"
+					required
 					type="text"
 					value={this.state.username}
 					onChange={this.handleUserChange}
@@ -37,4 +43,4 @@ class Input extends Component {
 }
 
 
-export default Input; 
+export default Input;

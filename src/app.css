@@ -48,3 +48,10 @@ mark {
 .Range .DayPicker-Day {
   border-radius: 0 !important;
 }
+
+.new-comment-form {
+  background-color: #bac5ba;
+  margin: 32px;
+  padding: 16px;
+  box-sizing: border-box;
+}
