@@ -29,3 +29,8 @@ blockquote {
 mark {
 	padding: 4px;
 }
+
+.custom-select {
+  width: 300px;
+  margin: 16px 0;
+}

@@ -2,6 +2,8 @@ const css = require('./app.css');
 import React from "react";
 import {render} from "react-dom";
 // import Article  from "./article/article.jsx";
+import Select from 'react-select';
+import 'react-select/dist/react-select.css';
 import ArticleClass  from "./article/article-class.jsx";
 import ArticleList  from "./article/article-list.jsx";
 import Modals  from "./modals/modals.jsx";
@@ -9,10 +11,12 @@ import Input from "./form/input.jsx";
 import {articles} from "./data.js";
 
 
+
 class App extends React.Component {
 
   state = {
     updateIndex: 0,
+    selection: null,
   }
 
   componentWillMount(){
@@ -33,6 +37,14 @@ class App extends React.Component {
   }
 
   render() {
+
+    const options = articles.map(article => (
+      {
+        label: article.title,
+        value: article.title,
+      }
+    ));
+
   	return (
   		<React.Fragment>
         <h1>App</h1>
@@ -65,13 +77,20 @@ class App extends React.Component {
         <br/><br/>
         <Input />
 
+        <Select
+          options={options}
+          value={this.state.selection}
+          onChange={this.changeSelection}
+          className="custom-select"
+        />
+
   		</React.Fragment>
   	)
   }
 
 
 
-
+  changeSelection = selection => this.setState({selection})
 
   testRef = ref => {
     // //console.log('testRef ref ', ref);
