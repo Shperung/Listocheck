@@ -1,5 +1,7 @@
+//https://coursehunters.net/course/learn-javascript-ru-reactjs
 const css = require('./app.css');
 import React from "react";
+import {Provider} from "react-redux";
 import {render} from "react-dom";
 // import Article  from "./article/article.jsx";
 import Select from 'react-select';
@@ -7,6 +9,7 @@ import 'react-select/dist/react-select.css';
 import ArticleClass  from "./article/article-class.jsx";
 import ArticleList  from "./article/article-list.jsx";
 import Modals  from "./modals/modals.jsx";
+import Counter from "./other/counter.jsx"
 import Input from "./form/input.jsx";
 import {articles} from "./data.js";
 import Datepicker from "./form/datepicker.jsx";
@@ -46,48 +49,53 @@ class App extends React.Component {
     ));
 
   	return (
-  		<React.Fragment>
-        <h1>App</h1>
-  			
-        <h2>Тест одной статичной стьи</h2>
-        <ArticleClass
-          id={1}
-          title="article Class"
-          text="Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-        />
+      <Provider store = {store}>
+  		  <React.Fragment>
+          <h1>App</h1>
 
-        <h2>Тест модалок</h2>
-        <Modals />
+          <Counter />
 
-        <h2>Тест списка статей</h2>
-        <ArticleList  ref={this.testArticleList} articles={articles} />
+          <h2>Тест одной статичной стьи</h2>
 
-        <button 
-          //onClick = {() => this.setState(updateIndex: this.state.updateIndex + 1)}
-          // onClick = {() => //console.log('click ', this.state.updateIndex + 1)}
-          onClick = {() => this.setState({updateIndex: this.state.updateIndex + 1})}
-        >
-          Тест полного перегенирирования
-        </button>
-        <br/><br/>
-        <b ref={this.testRef} className="click-here" key={this.state.updateIndex}>
-          Полное перегинерирование this.state.updateIndex - {this.state.updateIndex}
-        </b>
+          <ArticleClass
+            id={1}
+            title="article Class"
+            text="Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+          />
 
-        <br/><br/>
-        <Input />
+          <h2>Тест модалок</h2>
+          <Modals />
 
-        <Select
-          options={options}
-          value={this.state.selection}
-          onChange={this.changeSelection}
-          className="custom-select"
-          multi
-        />
+          <h2>Тест списка статей</h2>
+          <ArticleList  ref={this.testArticleList} articles={articles} />
 
-        <Datepicker />
+          <button 
+            //onClick = {() => this.setState(updateIndex: this.state.updateIndex + 1)}
+            // onClick = {() => //console.log('click ', this.state.updateIndex + 1)}
+            onClick = {() => this.setState({updateIndex: this.state.updateIndex + 1})}
+          >
+            Тест полного перегенирирования
+          </button>
+          <br/><br/>
+          <b ref={this.testRef} className="click-here" key={this.state.updateIndex}>
+            Полное перегинерирование this.state.updateIndex - {this.state.updateIndex}
+          </b>
 
-  		</React.Fragment>
+          <br/><br/>
+          <Input />
+
+          <Select
+            options={options}
+            value={this.state.selection}
+            onChange={this.changeSelection}
+            className="custom-select"
+            multi
+          />
+
+          <Datepicker />
+
+    		</React.Fragment>
+      </Provider>
   	)
   }
 
