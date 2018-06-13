@@ -25,7 +25,7 @@ class ArticleClass extends PureComponent {
   render() {
     //console.log(this.state); // стейт всегда логировать в render (в других методах неправильно)
 
-    console.log('update article');
+    // console.log('update article');
     const {
       id,
       title,

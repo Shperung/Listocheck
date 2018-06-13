@@ -10,7 +10,7 @@ import Modals  from "./modals/modals.jsx";
 import Input from "./form/input.jsx";
 import {articles} from "./data.js";
 import Datepicker from "./form/datepicker.jsx";
-
+import store from "./store.js";
 
 class App extends React.Component {
 

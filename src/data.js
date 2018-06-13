@@ -2,7 +2,7 @@ export const articles = [
 	{
 		"id": "454563434",
 		"title": "Title1",
-		"text": "text1",
+		"text": "text1 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis",
 		"comments": [
 			{
 				"id": "4545634326",
@@ -34,7 +34,7 @@ export const articles = [
 	{
 		"id": "4545d3434",
 		"title": "Title2",
-		"text": "text2",
+		"text": "text2  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis",
 		"comments": [
 			{
 				"id": "45456dc326",
@@ -66,7 +66,7 @@ export const articles = [
 	{
 		"id": "4545sdv434",
 		"title": "Title3",
-		"text": "text3",
+		"text": "text3  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis",
 		"comments": [
 			{
 				"id": "45456bvn26",
@@ -98,6 +98,6 @@ export const articles = [
 	{
 		"id": "4577745sdv434",
 		"title": "Title4",
-		"text": "text4",
+		"text": "text4  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis",
 	},
 ];
