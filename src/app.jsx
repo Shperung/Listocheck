@@ -13,6 +13,7 @@ import Counter from "./other/counter.jsx"
 import Input from "./form/input.jsx";
 import {articles} from "./data.js";
 import Datepicker from "./form/datepicker.jsx";
+import Grid from "./other/grid.jsx";
 import store from "./store.js";
 
 class App extends React.Component {
@@ -52,6 +53,8 @@ class App extends React.Component {
       <Provider store = {store}>
   		  <React.Fragment>
           <h1>App</h1>
+
+          <Grid />
 
           <Counter />
 

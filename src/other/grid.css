@@ -1,0 +1,5 @@
+.grid {
+  display: grid;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+}
