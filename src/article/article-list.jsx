@@ -1,14 +1,18 @@
 //Class
 import React, {Component} from "react";
+import {connect} from "react-redux";
+
 import ArticleClass  from "./article-class.jsx";
-export default class ArticleList extends Component {
+
+
+class ArticleList extends Component {
 	state = {
 		openArticleId: null
 	}
 
 	render(){
 		const {
-			articles = {}
+			articles = null
 		} = this.props;
 
 		const {
@@ -18,7 +22,7 @@ export default class ArticleList extends Component {
 		return (
 			<div>
 				{
-					articles.map((article) =>
+					articles ? articles.map((article) =>
 						<ArticleClass 
 							key={article.id}
 							id={article.id}
@@ -28,6 +32,10 @@ export default class ArticleList extends Component {
 							isOpen={article.id === openArticleId}
 							toggleOpen = {this.toggleOpenArticle.bind(this, article.id)}
 						/>
+					) : (
+						<b className="empty-msg">
+							!-------Empty articles--------!
+						</b>
 					)
 				}
 			</div>
@@ -38,3 +46,8 @@ export default class ArticleList extends Component {
 		this.setState({openArticleId});
 	}
 } /* class */
+
+
+export default connect(state => ({
+	articles: state.articles
+}))(ArticleList);

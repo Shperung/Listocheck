@@ -70,7 +70,7 @@ class App extends React.Component {
           <Modals />
 
           <h2>Тест списка статей</h2>
-          <ArticleList  ref={this.testArticleList} articles={articles} />
+          <ArticleList  ref={this.testArticleList}  />
 
           <button 
             //onClick = {() => this.setState(updateIndex: this.state.updateIndex + 1)}

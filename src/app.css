@@ -68,3 +68,10 @@ mark {
     margin: 0 16px;
   }
 }
+
+
+.empty-msg {
+  color: #a42d2d;
+  padding: 8px;
+  display: block;
+}
