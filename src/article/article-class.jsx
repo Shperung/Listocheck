@@ -1,8 +1,9 @@
 // Class
 import React, {Component, PureComponent} from 'react';
+import {connect} from 'react-redux';
 import Commemt from "./comment.jsx";
 import CommemtList from "./comment-list.jsx";
-
+import {deleteArticles} from "./article-action.js";
 
 import toggleOpen from "../decorators/toddle-open.jsx";
 
@@ -15,6 +16,14 @@ class ArticleClass extends PureComponent {
   setContainerRef = ref => {
     this.container = ref;
     // console.log('ref ', ref);
+  }
+
+  handelDelete = () => {
+    const {
+      id,
+      deleteArticles,
+    } = this.props;
+    deleteArticles(id);
   }
 
 
@@ -32,7 +41,7 @@ class ArticleClass extends PureComponent {
       text,
       comments,
       isOpen,
-      toggleOpen
+      toggleOpen,
     } = this.props;   
 
     const body = isOpen ? 
@@ -48,8 +57,11 @@ class ArticleClass extends PureComponent {
         ref={this.setContainerRef}
       >
         <h3>{title}</h3>
-        <button onClick= {toggleOpen} type="button">
+        <button onClick={toggleOpen} type="button">
           {isOpen ? 'close' : 'open'}
+        </button>
+       <button onClick={this.handelDelete} type="button">
+         Delete
         </button>
         {body}
       </article>
@@ -57,6 +69,6 @@ class ArticleClass extends PureComponent {
   }
 
 
-}/*class*/
+} /*class*/
 
-export default ArticleClass;
+export default connect(null, {deleteArticles})(ArticleClass);

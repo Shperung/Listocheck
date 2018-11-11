@@ -15,6 +15,8 @@ class ArticleList extends Component {
 			articles = null
 		} = this.props;
 
+		console.log('articles - list - ', articles);
+
 		const {
 			openArticleId
 		} = this.state;
@@ -22,7 +24,7 @@ class ArticleList extends Component {
 		return (
 			<div>
 				{
-					articles ? articles.map((article) =>
+					articles && articles.length > 0 ? articles.map((article) =>
 						<ArticleClass 
 							key={article.id}
 							id={article.id}
