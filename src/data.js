@@ -1,7 +1,7 @@
 export const articles = [
 	{
 		"id": "454563434",
-		"title": "Title1",
+		"title": "Title1 New",
 		"text": "text1 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis",
 		"comments": [
 			{

@@ -4,16 +4,15 @@ import React from "react";
 import {Provider} from "react-redux";
 import {render} from "react-dom";
 // import Article  from "./article/article.jsx";
-import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 import ArticleClass  from "./article/article-class.jsx";
 import ArticleList  from "./article/article-list.jsx";
 import Modals  from "./modals/modals.jsx";
 import Counter from "./other/counter.jsx"
 import Input from "./form/input.jsx";
-import {articles} from "./data.js";
 import Datepicker from "./form/datepicker.jsx";
 import Grid from "./other/grid.jsx";
+import SelectFilter from "./article/filter-select.jsx";
 import store from "./store.js";
 
 class App extends React.Component {
@@ -41,13 +40,6 @@ class App extends React.Component {
   }
 
   render() {
-
-    const options = articles.map(article => (
-      {
-        label: article.title,
-        value: article.title,
-      }
-    ));
 
   	return (
       <Provider store = {store}>
@@ -87,24 +79,19 @@ class App extends React.Component {
           <br/><br/>
           <Input />
 
-          <Select
-            options={options}
-            value={this.state.selection}
-            onChange={this.changeSelection}
-            className="custom-select"
-            multi
-          />
+        
+          <SelectFilter />
 
-          <Datepicker />
+          {
+            /*
+            <Datepicker />
+            */
+          }
 
     		</React.Fragment>
       </Provider>
   	)
   }
-
-
-
-  changeSelection = selection => this.setState({selection})
 
   testRef = ref => {
     // //console.log('testRef ref ', ref);
