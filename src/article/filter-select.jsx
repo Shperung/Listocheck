@@ -3,22 +3,22 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Select from 'react-select';
 
-import {сhangeSelection} from "./article-action.js";
+import {changeSelection} from "./article-action.js";
+
 
 class SelectFilter extends Component {
 
-  state = {
-    updateIndex: 0,
-    selection: null,
-  }
-
   //changeSelection = selection => this.setState({selection})
+  handleChange = selected => this.props.changeSelection(selected.map(option => option.value));
 
   render() {
     const {
       articles,
       selected
     } = this.props;   
+
+
+    console.log('this.props', this.props);
 
     const options = articles.map(article => (
       {
@@ -32,8 +32,8 @@ class SelectFilter extends Component {
         select wrap <br/>
         <Select
           options={options}
-          value={this.state.selection}
-          onChange={console.log('ok')}
+          value={selected}
+          onChange={this.handleChange}
           className="custom-select"
           multi
         />
@@ -47,5 +47,5 @@ class SelectFilter extends Component {
 export default connect(state => ({
   selected: state.filters.selected,
   articles: state.articles
-}), {сhangeSelection})(SelectFilter);
+}), {changeSelection})(SelectFilter);
 //export default SelectFilter;

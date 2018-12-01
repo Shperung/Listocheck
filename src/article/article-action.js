@@ -13,12 +13,12 @@ export function deleteArticles(id) {
 	}
 }
 
-export function сhangeSelection(id) {
-	console.log('сhangeSelection - action ', id);
+export function changeSelection(selected) {
+	console.log('changeSelection - action ', selected);
 	return {
 		type: CHANGE_SELECTION, // обязательно
 		payload: { // договоренность что все параметры передаются через payload
-			id
+			selected
 		}
 	}
 }
