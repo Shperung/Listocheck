@@ -18,12 +18,12 @@ class SelectFilter extends Component {
     } = this.props;   
 
 
-    console.log('this.props', this.props);
+    //console.log('this.props', this.props);
 
     const options = articles.map(article => (
       {
         label: article.title,
-        value: article.title,
+        value: article.id,
       }
     ));
 

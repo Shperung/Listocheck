@@ -15,8 +15,7 @@ class ArticleList extends Component {
 			articles = null
 		} = this.props;
 
-		console.log('articles - list - ', articles);
-
+	
 		const {
 			openArticleId
 		} = this.state;
@@ -50,6 +49,13 @@ class ArticleList extends Component {
 } /* class */
 
 
-export default connect(state => ({
-	articles: state.articles
-}))(ArticleList);
+export default connect(({filters, articles}) => {
+	const {selected} = filters;
+	const filteredArticles = articles.filter(article => {
+		return (!selected.length || selected.includes(article.id))
+	});
+
+	return {
+		articles: filteredArticles
+	}
+})(ArticleList);
