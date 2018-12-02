@@ -1,7 +1,7 @@
 //Class
 import React, {Component} from "react";
 import {connect} from "react-redux";
-
+import {filteredArticlesSelector} from "../selectors/articles-selector.js";
 import ArticleClass  from "./article-class.jsx";
 
 
@@ -11,6 +11,7 @@ class ArticleList extends Component {
 	}
 
 	render(){
+		console.log('articles render');
 		const {
 			articles = null
 		} = this.props;
@@ -49,13 +50,8 @@ class ArticleList extends Component {
 } /* class */
 
 
-export default connect(({filters, articles}) => {
-	const {selected} = filters;
-	const filteredArticles = articles.filter(article => {
-		return (!selected.length || selected.includes(article.id))
-	});
-
+export default connect((state) => {
 	return {
-		articles: filteredArticles
+		articles: filteredArticlesSelector(state)
 	}
 })(ArticleList);
