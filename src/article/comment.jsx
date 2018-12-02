@@ -1,22 +1,24 @@
 // Class
 import React, {Component} from 'react';
 import toggleOpen from "../decorators/toddle-open.jsx";
+import {connect} from "react-redux";
 
  class Comment extends Component {
   render() {
     const {
       id,
-      user,
-      text,
+      comment,
       isOpen,
       toggleOpen
     } = this.props;
 
-    const body = isOpen ? <p><em>{text}</em></p> : null;
+    console.log('this.props', this.props);
+
+    const body = isOpen ? <p><em>{comment.text}</em></p> : null;
 
     return (
-      <blockquote key={id}>
-        <h4>Комент от - <b>{user}</b></h4>
+      <blockquote>
+        <h4>Комент от - <b>{comment.user}</b></h4>
         <button onClick= {toggleOpen} type="button">
           {isOpen ? 'Закрыть коммент' : 'Показать коммент'}
         </button>
@@ -26,7 +28,8 @@ import toggleOpen from "../decorators/toddle-open.jsx";
   }
 
 
+};/*class*/
 
-}/*class*/
-
-export default toggleOpen(Comment);
+export default connect((state, ownProps) => {
+  return {comment: state.comments.find(comment => comment.id === ownProps.id)}
+})(toggleOpen(Comment));

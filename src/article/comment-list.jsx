@@ -13,11 +13,10 @@ const {
  	 <React.Fragment>
 	    {
 	     comments.length > 0 ? 
-	        comments.map((comment) => 
+	        comments.map((id) => 
 	          <Commemt 
-	            key={comment.id}
-	            user={comment.user}
-	            text={comment.text}
+	            key={id}
+	            id={id}
 	          />
 	        )
 	      : (

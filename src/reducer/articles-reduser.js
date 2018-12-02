@@ -1,4 +1,5 @@
-import {articles as defaultArticles} from "../data.js";
+//import {articles as defaultArticles} from "../data.js"; 
+import {normalizedArticles as defaultArticles} from "../fixtures.js";
 import {
   DELETE_ARTICLE
 } from "../constants.js";
